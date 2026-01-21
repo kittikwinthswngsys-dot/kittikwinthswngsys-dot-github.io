@@ -14,13 +14,17 @@ import os
 # =========================
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", os.urandom(64))
+app.config["SECRET_KEY"] = os.environ.get(
+    "SECRET_KEY", "dev-secret-key-change-me"
+)
+
 
 csrf = CSRFProtect(app)
 limiter = Limiter(
     get_remote_address,
     app=app,
     default_limits=["500 per day"]
+    storage_uri="memory://"
 )
 
 # =========================
@@ -452,3 +456,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=False)
+
