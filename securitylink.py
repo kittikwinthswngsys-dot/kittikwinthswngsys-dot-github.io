@@ -14,10 +14,9 @@ import os
 # =========================
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = os.environ.get(
-    "SECRET_KEY", "dev-secret-key-change-me"
-)
-
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+if not app.config["SECRET_KEY"]:
+    raise RuntimeError("SECRET_KEY not set")
 
 csrf = CSRFProtect(app)
 limiter = Limiter(
@@ -456,5 +455,6 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
