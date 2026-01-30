@@ -373,7 +373,7 @@ li {
         </h2>
 
         <div class="info-bar">
-            <span>การเปิดใช้HTTPS: <b class="{{ 'ok' if result.https else 'bad' }}">{{ 'Enabled' if result.https else 'Disabled' }}</b></span>
+            <span>การเปิดใช้HTTPS: <b class="{{ 'ok' if result.https else 'bad' }}">{{ 'มีการเปิดใช้งาน' if result.https else 'ไม่มีการเปิดใช้งาน' }}</b></span>
             <span>โปรโตคอลเข้ารหัสข้อมูล: <b>{{ result.tls }}</b></span>
             <span>สถานะตอบกลับเซิร์ฟเวอร์: <b>{{ result.status }}</b></span>
         </div>
@@ -386,7 +386,7 @@ li {
                 {% for k,v in result.headers.items() %}
                 <li>
                     <span>{{ k }}</span>
-                    <span class="status-badge {{ 'ok' if v else 'bad' }}">{{ 'Secure' if v else 'Missing' }}</span>
+                    <span class="status-badge {{ 'ok' if v else 'bad' }}">{{ 'มีการจัดการ' if v else 'ไม่มีการจัดการ' }}</span>
                 </li>
                 {% endfor %}
                 </ul>
@@ -398,7 +398,7 @@ li {
                 {% for k,v in result.cookies.items() %}
                 <li>
                     <span>{{ k }}</span>
-                    <span class="status-badge {{ 'ok' if v else 'bad' }}">{{ 'Safe' if v else 'At Risk' }}</span>
+                    <span class="status-badge {{ 'ok' if v else 'bad' }}">{{ 'มีการป้องกัน' if v else 'ไม่มีการป้องกัน' }}</span>
                 </li>
                 {% endfor %}
                 </ul>
@@ -455,6 +455,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
 
