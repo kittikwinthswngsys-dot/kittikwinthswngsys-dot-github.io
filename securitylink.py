@@ -47,15 +47,11 @@ SECURITY_HEADERS = {
 # UTIL FUNCTIONS
 # =========================
 
-def validate_url(url: str):
+def validate_url(url: str) -> bool:
     if not url or len(url) > 200:
         return False
     parsed = urlparse(url)
-    https_open=parsed.scheme in ["http", "https"] and bool(parsed.netloc)
-    if https_open == True:
-        return 'เปิดใช้งาน'
-    else:
-        return 'ไม่เปิดใช้งาน'
+    return parsed.scheme in ["http", "https"] and bool(parsed.netloc)
 
 def get_tls_version(host):
     try:
@@ -459,7 +455,6 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port, debug=False)
-
 
 
 
