@@ -325,6 +325,8 @@ li {
 .ok {
     min-width: 120px;
     white-space: nowrap;
+    display:flex;
+    align-items: center;
     background: rgba(30,201,139,0.15);
     color: var(--success);
     animation: pulse 2s infinite;
@@ -339,6 +341,8 @@ li {
 .bad {
     min-width: 120px;
     white-space: nowrap;
+    display:flex;
+    align-items: center;
     background: rgba(255,77,77,0.15);
     color: var(--danger);
 }
@@ -459,6 +463,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
 
