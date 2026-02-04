@@ -326,8 +326,6 @@ li {
     white-space: nowrap;
     background: rgba(30,201,139,0.15);
     color: var(--success);
-    padding: 4px 8px;
-    border-radius: 6px;
 }
 
 @keyframes pulse {
@@ -340,8 +338,6 @@ li {
     white-space: nowrap;
     background: rgba(255,77,77,0.15);
     color: var(--danger);
-    padding: 4px 8px;
-    border-radius: 6px;
 }
 
 /* ===== Footer ===== */
@@ -460,6 +456,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
 
