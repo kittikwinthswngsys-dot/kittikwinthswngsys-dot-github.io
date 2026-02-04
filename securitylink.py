@@ -339,7 +339,13 @@ li {
     white-space: nowrap;
     background: rgba(255,77,77,0.15);
     color: var(--danger);
-    animation: pulse 2s infinite;
+    animation: pulse-bad 2s infinite;
+}
+
+@keyframes pulse-bad {
+    0%   { box-shadow: 0 0 0 0 rgba(255,77,77,0.5); }
+    70%  { box-shadow: 0 0 0 10px rgba(255,77,77,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,77,77,0); }
 }
 
 /* ===== Footer ===== */
@@ -458,6 +464,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
 
